@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MeasurementProtocolClient
 {
-    class Size
+    public class Size
     {
         public int Height { get; set; }
         public int Width { get; set; }

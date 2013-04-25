@@ -9,7 +9,7 @@ namespace MeasurementProtocolClient.Extensions
     {
         public static bool IsNullableOrClass(this Type type)
         {
-            return type.IsClass || type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return type.IsClass || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>));
         }
     }
 }

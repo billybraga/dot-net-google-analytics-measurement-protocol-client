@@ -23,7 +23,7 @@ namespace MeasurementProtocolClient.Attributes
             var items =
             (
                 from prop in typeof(T).GetProperties()
-                let customAttributes = prop.GetCustomAttributes(typeof(ParameterAttribute), false)
+                let customAttributes = prop.GetCustomAttributes(typeof(ParameterAttribute), true)
                 let value = prop.GetValue(obj, null)
                 where customAttributes.Length > 0 && (!prop.PropertyType.IsNullableOrClass() || value != null)
                 select new

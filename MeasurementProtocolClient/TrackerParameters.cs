@@ -36,7 +36,14 @@ namespace MeasurementProtocolClient
         }
         
         #endregion
-        
+
+
+        #region Private fields
+
+        private Tracker tracker;
+
+        #endregion
+
 
         #region Public Properties
 
@@ -139,7 +146,13 @@ namespace MeasurementProtocolClient
         public string GoogleDisplayAdsId { get; set; }
 
         [Parameter("t")]
-        public HitTypes HitType { get; set; }
+        public HitTypes HitType
+        {
+            get
+            {
+                return tracker.HitType;
+            }
+        }
 
         [Parameter("v")]
         public string ProtocolVersion { get; set; }
@@ -170,13 +183,13 @@ namespace MeasurementProtocolClient
         public string ScreenColors { get; set; }
 
         [Parameter("sr")]
-        public Size? ScreenResolution { get; set; }
+        public Size ScreenResolution { get; set; }
 
         [Parameter("ul")]
         public string UserLanguage { get; set; }
 
         [Parameter("vp")]
-        public Size? ViewportSize { get; set; }
+        public Size ViewportSize { get; set; }
 
         /// <summary>
         /// Used to control the session duration. A value of 'start' forces a new session to start with this hit and 'end' forces the current session to end with this hit. All other values are ignored.
@@ -195,8 +208,11 @@ namespace MeasurementProtocolClient
 
         #region Constructors
 
-        public TrackerParameters()
+        public TrackerParameters(Tracker tracker, string trackingId, string clientId)
         {
+            this.tracker = tracker;
+            this.ClientId = clientId;
+            this.TrackingId = trackingId;
             ProtocolVersion = DEFAULT_PROTOCOL_VERSION;
         }
 

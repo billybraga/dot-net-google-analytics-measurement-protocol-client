@@ -16,9 +16,9 @@ namespace MeasurementProtocolClient.Attributes
             this.maxByteCount = maxByteCount;
         }
 
-        public override bool IsValid(string value)
+        public override bool IsValid(object value)
         {
-            return Encoding.UTF8.GetByteCount(value) <= maxByteCount;
+            return value != null && Encoding.UTF8.GetByteCount(value.ToString()) <= maxByteCount;
         }
     }
 }

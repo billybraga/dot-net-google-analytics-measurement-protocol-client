@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeasurementProtocolClient", "MeasurementProtocolClient.csproj", "{0A501FD0-F3A1-4A12-B23A-125C5B243CC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeasurementProtocolClient.Tests", "..\MeasurementProtocolClient.Tests\MeasurementProtocolClient.Tests.csproj", "{9A1B928F-B349-48F4-B595-1ACCE4C34443}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{0A501FD0-F3A1-4A12-B23A-125C5B243CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A501FD0-F3A1-4A12-B23A-125C5B243CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A501FD0-F3A1-4A12-B23A-125C5B243CC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1B928F-B349-48F4-B595-1ACCE4C34443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1B928F-B349-48F4-B595-1ACCE4C34443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1B928F-B349-48F4-B595-1ACCE4C34443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1B928F-B349-48F4-B595-1ACCE4C34443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
