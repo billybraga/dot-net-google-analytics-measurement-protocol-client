@@ -5,18 +5,18 @@ using System.Text;
 
 namespace MeasurementProtocolClient
 {
-    class ScreenResolution
+    class Size
     {
         public int Height { get; set; }
         public int Width { get; set; }
 
-        public ScreenResolution(int width, int height)
+        public Size(int width, int height)
         {
             Height = height;
             Width = width;
 
             if (Encoding.UTF8.GetByteCount(ToString()) > 20)
-                throw new Exception("Screen Resolution parameter must be less than 20 bytes");
+                throw new Exception("Parameter must be less than 20 bytes");
         }
 
         public override string ToString()
