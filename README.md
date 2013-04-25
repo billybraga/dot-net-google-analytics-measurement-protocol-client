@@ -8,8 +8,9 @@ https://developers.google.com/analytics/devguides/collection/protocol/v1/devguid
 
 Usage : 
 
-  var tracker = new PageviewTracker("UA-XXXX-Y", CLIENT_ID);
-  tracker.Parameters.DocumentPath = "/testpage";
-  tracker.Parameters.DocumentTitle = "Test page";
-  tracker.Send();
-  
+```
+  var tracker = new PageviewTracker("UA-XXXX-Y", CLIENT_ID); 
+  tracker.Parameters.DocumentPath = "/testpage"; 
+  tracker.Parameters.DocumentTitle = "Test page"; 
+  tracker.Send(); 
+```
