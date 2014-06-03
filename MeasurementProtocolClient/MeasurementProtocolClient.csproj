@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Attributes\ParameterAttribute.cs" />
     <Compile Include="Attributes\MaxByteCountAttribute.cs" />
+    <Compile Include="EventTracker.cs" />
     <Compile Include="PageviewTracker.cs" />
     <Compile Include="TrackerParameters.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
