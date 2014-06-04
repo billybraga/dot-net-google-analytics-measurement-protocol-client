@@ -90,6 +90,10 @@ namespace MeasurementProtocolClient
         [Parameter("cid")]
         public string ClientId { get; set; }
 
+        public Dictionary<int, string> CustomDimensions { get; private set; }
+
+        public Dictionary<int, int> CustomMetrics { get; private set; }
+        
         /// <summary>
         /// Default value from Analytics : UTF-8
         /// </summary>
@@ -213,7 +217,9 @@ namespace MeasurementProtocolClient
             this.tracker = tracker;
             this.ClientId = clientId;
             this.TrackingId = trackingId;
-            ProtocolVersion = DEFAULT_PROTOCOL_VERSION;
+            this.CustomDimensions = new Dictionary<int, string>();
+            this.CustomMetrics = new Dictionary<int, int>();
+            this.ProtocolVersion = DEFAULT_PROTOCOL_VERSION;
         }
 
         #endregion

@@ -13,8 +13,13 @@ namespace MeasurementProtocolClient.Tests
         public void BasicNameValueCollectionGenerationTest()
         {
             var tracker = new PageviewTracker(TRACKER_ID, CLIENT_ID);
+            tracker.Parameters.CustomDimensions.Add(1, "cdvalue1");
+            tracker.Parameters.CustomMetrics.Add(1, 123);
+
             var collection = tracker.GetNameValueCollection();
 
+            Assert.AreEqual("cdvalue1", collection["cd1"]);
+            Assert.AreEqual("123", collection["cm1"]);
             Assert.AreEqual(CLIENT_ID, collection["cid"]);
         }
 
@@ -22,11 +27,16 @@ namespace MeasurementProtocolClient.Tests
         public void SendTest()
         {
             var tracker = new PageviewTracker(TRACKER_ID, CLIENT_ID);
+            tracker.Parameters.CustomDimensions.Add(1, "cdvalue1");
+            tracker.Parameters.CustomMetrics.Add(1, 123);
+            tracker.Parameters.CampaignName = "Test campaign";
+            tracker.Parameters.CampaignMedium = "UnitTests";
+            tracker.Parameters.CampaignSource = "email";
             tracker.Parameters.DocumentPath = "/testpage";
             tracker.Parameters.DocumentTitle = "Test page";
             tracker.Send();
 
-            tracker.Parameters.ClientId = CLIENT_ID + "2";
+            tracker = new PageviewTracker(TRACKER_ID, CLIENT_ID + "2");
             tracker.Parameters.DocumentPath = "/testpage2";
             tracker.Parameters.DocumentTitle = "Test page2";
             tracker.Send();

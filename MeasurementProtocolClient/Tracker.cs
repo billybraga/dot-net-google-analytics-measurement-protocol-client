@@ -58,7 +58,15 @@ namespace MeasurementProtocolClient
 
         public NameValueCollection GetNameValueCollection()
         {
-            return ParameterAttribute.GetNameValueCollection(Parameters);
+            var collection = ParameterAttribute.GetNameValueCollection(Parameters);
+
+            foreach (var pair in Parameters.CustomDimensions)
+                collection.Add("cd" + pair.Key.ToString(), pair.Value);
+
+            foreach (var pair in Parameters.CustomMetrics)
+                collection.Add("cm" + pair.Key.ToString(), pair.Value.ToString());
+
+            return collection;
         }
 
         public void Send()
