@@ -1,12 +1,4 @@
-﻿using MeasurementProtocolClient.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Net;
-using System.Text;
-
-namespace MeasurementProtocolClient
+﻿namespace MeasurementProtocolClient
 {
     public class EventTracker : Tracker
     {

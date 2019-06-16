@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using MeasurementProtocolClient.Extensions;
 
 namespace MeasurementProtocolClient.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class ParameterAttribute : Attribute
     {
-        private string parameterName;
+        private readonly string parameterName;
 
         public ParameterAttribute(string parameterName)
         {
             this.parameterName = parameterName;
         }
-        
+
         public static NameValueCollection GetNameValueCollection<T>(T obj) where T : class
-        {            
+        {
             var items =
             (
                 from prop in typeof(T).GetProperties()
@@ -28,12 +25,11 @@ namespace MeasurementProtocolClient.Attributes
                 where customAttributes.Length > 0 && (!prop.PropertyType.IsNullableOrClass() || value != null)
                 select new
                 {
-                    parameterName = ((ParameterAttribute)customAttributes[0]).parameterName,
-                    value = value
+                    ((ParameterAttribute)customAttributes[0]).parameterName, value
                 }
             )
             .ToArray();
-            
+
             var collection = new NameValueCollection(items.Length);
 
             foreach (var item in items)

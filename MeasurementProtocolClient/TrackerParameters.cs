@@ -1,8 +1,5 @@
 ﻿using MeasurementProtocolClient.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MeasurementProtocolClient
 {
@@ -34,13 +31,13 @@ namespace MeasurementProtocolClient
             Start,
             End
         }
-        
+
         #endregion
 
 
         #region Private fields
 
-        private Tracker tracker;
+        private readonly Tracker tracker;
 
         #endregion
 
@@ -93,7 +90,7 @@ namespace MeasurementProtocolClient
         public Dictionary<int, string> CustomDimensions { get; private set; }
 
         public Dictionary<int, int> CustomMetrics { get; private set; }
-        
+
         /// <summary>
         /// Default value from Analytics : UTF-8
         /// </summary>
@@ -165,10 +162,10 @@ namespace MeasurementProtocolClient
         public bool? JavaEnabled { get; set; }
 
         /// <summary>
-        /// Used to collect offline / latent hits. 
-        /// The value represents the time delta (in milliseconds) 
-        /// between when the hit being reported occurred and the time the hit was sent. 
-        /// The value must be greater than or equal to 0. 
+        /// Used to collect offline / latent hits.
+        /// The value represents the time delta (in milliseconds)
+        /// between when the hit being reported occurred and the time the hit was sent.
+        /// The value must be greater than or equal to 0.
         /// Values greater than four hours may lead to hits not being processed.
         /// </summary>
         [Parameter("qt")]
@@ -215,11 +212,11 @@ namespace MeasurementProtocolClient
         public TrackerParameters(Tracker tracker, string trackingId, string clientId)
         {
             this.tracker = tracker;
-            this.ClientId = clientId;
-            this.TrackingId = trackingId;
-            this.CustomDimensions = new Dictionary<int, string>();
-            this.CustomMetrics = new Dictionary<int, int>();
-            this.ProtocolVersion = DEFAULT_PROTOCOL_VERSION;
+            ClientId = clientId;
+            TrackingId = trackingId;
+            CustomDimensions = new Dictionary<int, string>();
+            CustomMetrics = new Dictionary<int, int>();
+            ProtocolVersion = DEFAULT_PROTOCOL_VERSION;
         }
 
         #endregion
