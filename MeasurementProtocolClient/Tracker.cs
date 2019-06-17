@@ -1,10 +1,7 @@
 ﻿using MeasurementProtocolClient.Attributes;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace MeasurementProtocolClient
 {
@@ -17,7 +14,7 @@ namespace MeasurementProtocolClient
 
         #endregion
 
-        
+
         #region Private Properties
 
         private Uri EndpointUri
@@ -38,7 +35,7 @@ namespace MeasurementProtocolClient
         public TrackerParameters Parameters { get; private set; }
 
         public string UserAgent { get; set; }
-        
+
         public bool UseSsl { get; set; }
 
         #endregion
@@ -46,7 +43,7 @@ namespace MeasurementProtocolClient
 
         #region Contructors
 
-        public Tracker(string trackingId, string clientId)
+        protected Tracker(string trackingId, string clientId)
         {
             Parameters = new TrackerParameters(this,trackingId, clientId);
         }
@@ -61,10 +58,14 @@ namespace MeasurementProtocolClient
             var collection = ParameterAttribute.GetNameValueCollection(Parameters);
 
             foreach (var pair in Parameters.CustomDimensions)
-                collection.Add("cd" + pair.Key.ToString(), pair.Value);
+            {
+                collection.Add("cd" + pair.Key, pair.Value);
+            }
 
             foreach (var pair in Parameters.CustomMetrics)
-                collection.Add("cm" + pair.Key.ToString(), pair.Value.ToString());
+            {
+                collection.Add("cm" + pair.Key, pair.Value.ToString());
+            }
 
             return collection;
         }

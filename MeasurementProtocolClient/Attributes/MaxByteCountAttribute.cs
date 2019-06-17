@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text;
 
 namespace MeasurementProtocolClient.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class MaxByteCountAttribute : ValidationAttribute
     {
-        private int maxByteCount;
+        private readonly int maxByteCount;
 
         public MaxByteCountAttribute(int maxByteCount)
         {
