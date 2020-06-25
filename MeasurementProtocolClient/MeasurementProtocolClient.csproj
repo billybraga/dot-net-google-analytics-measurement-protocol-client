@@ -6,7 +6,15 @@
     <Company>billybraga</Company>
     <PackageProjectUrl>https://github.com/billybraga/dot-net-google-analytics-measurement-protocol-client</PackageProjectUrl>
     <Product>MeasurementProtocolClient.Core</Product>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
